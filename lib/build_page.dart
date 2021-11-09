@@ -3,8 +3,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_tab_bar/indicator/linear_indicator.dart';
 
+import 'Unidades/medicao.dart';
 import 'Unidades/peso.dart';
 import 'Unidades/temperatura.dart';
+import 'Unidades/tempo.dart';
 import 'Unidades/velocidade.dart';
 
 class BuildPage extends StatefulWidget {
@@ -19,9 +21,9 @@ class _BuildPageState extends State<BuildPage> {
   Widget build(BuildContext context) {
     return MaterialApp(home: LayoutBuilder(
       builder: (context, contrains) {
-        if (contrains.maxWidth > 1000) {
+        if (contrains.maxWidth > 800) {
           return DefaultTabController(
-            length: 3,
+            length: 5,
             child: Scaffold(
               backgroundColor: Colors.black,
               appBar: AppBar(
@@ -46,11 +48,20 @@ class _BuildPageState extends State<BuildPage> {
                     Tab(
                       text: 'Peso',
                     ),
+                    Tab(
+                      text: 'Medição',
+                    ),
+                    Tab(
+                      text: 'Tempo',
+                    ),
                   ],
                 ),
                 title: const Text(
                   'Conversor',
-                  style: TextStyle(color: Colors.white, fontSize: 35),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 35,
+                      fontWeight: FontWeight.w200),
                 ),
               ),
               body: Padding(
@@ -60,14 +71,30 @@ class _BuildPageState extends State<BuildPage> {
                     Temperatura(),
                     Velocidade(),
                     Peso(),
+                    Medicao(),
+                    Tempo(),
                   ],
                 ),
+              ),
+              floatingActionButton: FloatingActionButton(
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.refresh,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  setState(() {
+                    kelvinController.clear();
+                    fahrenheitController.clear();
+                    celciusController.clear();
+                  });
+                },
               ),
             ),
           );
         } else {
           return DefaultTabController(
-            length: 3,
+            length: 5,
             child: Scaffold(
               backgroundColor: Colors.black,
               appBar: AppBar(
@@ -77,7 +104,7 @@ class _BuildPageState extends State<BuildPage> {
                 bottom: const TabBar(
                   unselectedLabelStyle: kTabTextStyle,
                   labelStyle: kTabTextStyle,
-                  isScrollable: false,
+                  isScrollable: true,
                   indicatorWeight: 3,
                   labelColor: Colors.white,
                   indicatorColor: Colors.white,
@@ -92,11 +119,20 @@ class _BuildPageState extends State<BuildPage> {
                     Tab(
                       text: 'Peso',
                     ),
+                    Tab(
+                      text: 'Medição',
+                    ),
+                    Tab(
+                      text: 'Tempo',
+                    ),
                   ],
                 ),
                 title: const Text(
                   'Conversor',
-                  style: TextStyle(color: Colors.white, fontSize: 35),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 35,
+                      fontWeight: FontWeight.w200),
                 ),
               ),
               body: Padding(
@@ -106,8 +142,24 @@ class _BuildPageState extends State<BuildPage> {
                     Temperatura(),
                     Velocidade(),
                     Peso(),
+                    Medicao(),
+                    Tempo(),
                   ],
                 ),
+              ),
+              floatingActionButton: FloatingActionButton(
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.refresh,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  setState(() {
+                    kelvinController.clear();
+                    fahrenheitController.clear();
+                    celciusController.clear();
+                  });
+                },
               ),
             ),
           );

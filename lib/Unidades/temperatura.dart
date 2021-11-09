@@ -1,4 +1,5 @@
 import 'package:conversor/constants.dart';
+import 'package:conversor/engine.dart';
 import 'package:flutter/material.dart';
 
 class Temperatura extends StatefulWidget {
@@ -9,25 +10,19 @@ class Temperatura extends StatefulWidget {
 }
 
 class _TemperaturaState extends State<Temperatura> {
+  final engine = const Engine();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Center(child: LayoutBuilder(
-      builder: (context, contrains) {
-        if (contrains.maxWidth > 500) {
-          return AnimatedContainer(
-            width: 500,
-            duration: Duration(seconds: 1),
-            child: TextField(),
-          );
-        } else {
-          return AnimatedContainer(
-            duration: Duration(seconds: 1),
-            width: size.width * 0.8,
-            child: TextField(),
-          );
-        }
-      },
+    return Center(
+        child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CustomTextField("Celcius C°", celciusController),
+        CustomTextField("Fahrenheit F°", fahrenheitController),
+        CustomTextField("Kelvin K", kelvinController)
+      ],
     ));
   }
 }
