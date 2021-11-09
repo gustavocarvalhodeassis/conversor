@@ -1,5 +1,4 @@
 import 'package:conversor/constants.dart';
-import 'package:conversor/engine.dart';
 import 'package:flutter/material.dart';
 
 class Temperatura extends StatefulWidget {
@@ -10,7 +9,13 @@ class Temperatura extends StatefulWidget {
 }
 
 class _TemperaturaState extends State<Temperatura> {
-  final engine = const Engine();
+  void calculateCelcius() {
+    double celcius = double.parse(celciusController.text);
+    double fahrenheit = double.parse(fahrenheitController.text);
+    double kelvin = double.parse(kelvinController.text);
+    double result;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
