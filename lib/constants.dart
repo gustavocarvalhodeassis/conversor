@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 TextEditingController celciusController = TextEditingController();
-TextEditingController fahrenheitController = TextEditingController();
+TextEditingController fahrenriteController = TextEditingController();
 TextEditingController kelvinController = TextEditingController();
-
+TextEditingController librasController = TextEditingController();
+TextEditingController kilosController = TextEditingController();
+TextEditingController kmphController = TextEditingController();
+TextEditingController mphController = TextEditingController();
 const TextStyle kTabTextStyle = TextStyle(
   color: Colors.white,
   fontSize: 15,
@@ -25,9 +28,7 @@ const InputBorder kInputBorder = OutlineInputBorder(
 );
 
 Widget CustomTextField(
-  String? txt,
-  TextEditingController controller,
-) {
+    String? txt, TextEditingController controller, Function(String) f) {
   return LayoutBuilder(builder: (context, contrain) {
     // se for um Computador
 
@@ -36,6 +37,7 @@ Widget CustomTextField(
         margin: EdgeInsets.only(bottom: 20),
         width: 450,
         child: TextFormField(
+          onChanged: f,
           controller: controller,
           style: kInputTextStyle,
           decoration: InputDecoration(
@@ -58,8 +60,11 @@ Widget CustomTextField(
     else {
       return Container(
         margin: EdgeInsets.only(bottom: 10),
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: TextFormField(
           controller: controller,
+          onChanged: f,
+          style: kInputTextStyle,
           decoration: InputDecoration(
             labelText: txt,
             labelStyle: kInputTextStyle,

@@ -17,6 +17,7 @@ class BuildPage extends StatefulWidget {
 }
 
 class _BuildPageState extends State<BuildPage> {
+  final temperatura = Temperatura();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home: LayoutBuilder(
@@ -56,25 +57,21 @@ class _BuildPageState extends State<BuildPage> {
                     ),
                   ],
                 ),
-                title: const Text(
-                  'Conversor',
-                  style: TextStyle(
+                title: Text('Conversor',
+                    style: TextStyle(
                       color: Colors.white,
+                      fontWeight: FontWeight.w300,
                       fontSize: 35,
-                      fontWeight: FontWeight.w200),
-                ),
+                    )),
               ),
-              body: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TabBarView(
-                  children: [
-                    Temperatura(),
-                    Velocidade(),
-                    Peso(),
-                    Medicao(),
-                    Tempo(),
-                  ],
-                ),
+              body: TabBarView(
+                children: [
+                  Temperatura(),
+                  Velocidade(),
+                  Peso(),
+                  Medicao(),
+                  Tempo(),
+                ],
               ),
               floatingActionButton: FloatingActionButton(
                 backgroundColor: Colors.white,
@@ -85,7 +82,7 @@ class _BuildPageState extends State<BuildPage> {
                 onPressed: () {
                   setState(() {
                     kelvinController.clear();
-                    fahrenheitController.clear();
+                    fahrenriteController.clear();
                     celciusController.clear();
                   });
                 },
@@ -135,17 +132,14 @@ class _BuildPageState extends State<BuildPage> {
                       fontWeight: FontWeight.w200),
                 ),
               ),
-              body: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TabBarView(
-                  children: [
-                    Temperatura(),
-                    Velocidade(),
-                    Peso(),
-                    Medicao(),
-                    Tempo(),
-                  ],
-                ),
+              body: TabBarView(
+                children: [
+                  Temperatura(),
+                  Velocidade(),
+                  Peso(),
+                  Medicao(),
+                  Tempo(),
+                ],
               ),
               floatingActionButton: FloatingActionButton(
                 backgroundColor: Colors.white,
@@ -156,7 +150,7 @@ class _BuildPageState extends State<BuildPage> {
                 onPressed: () {
                   setState(() {
                     kelvinController.clear();
-                    fahrenheitController.clear();
+                    fahrenriteController.clear();
                     celciusController.clear();
                   });
                 },

@@ -15,6 +15,10 @@ void main(List<String> args) {
         appBarTheme: AppBarTheme(
             backgroundColor: Colors.black,
             elevation: 0,
-            titleTextStyle: TextStyle(color: Colors.white, fontSize: 35))),
+            titleTextStyle: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w300,
+              fontSize: 35,
+            ))),
   ));
 }
